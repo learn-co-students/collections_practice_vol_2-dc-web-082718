@@ -52,3 +52,29 @@ def merge_data(keys, data)
   end
   merged_data
 end
+
+def find_cool(cool)
+  chill = []
+  cool.each do |person|
+    if person[:temperature] == "cool"
+      chill << person
+    end
+  end
+  chill
+end
+
+def organize_schools(schools)
+  organized_schools = {}
+  schools.each do |name, place_hash|
+    place_hash.each do |location_key, city|
+      organized_schools[city] = []
+    end
+  end
+  organized_schools #currently {"Chicago"=>[], "NYC"=>[], "SF"=>[]}
+  schools.each do |name, place_hash|
+    place_hash.each do |location_key, city|
+      organized_schools[city] << name
+    end
+  end
+  organized_schools
+end
